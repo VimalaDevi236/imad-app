@@ -20,3 +20,12 @@ body {
     height: 200px;
 }
 
+.container{
+                max-width:800px;
+                color:red;
+                margin : 0 auto;
+                padding-left:800px;
+                padding-right:800px;
+                font-family:algerian;
+}
+            
