@@ -1,13 +1,26 @@
 //counter code
 var button=document.getElementById('counter');
-var counter=0;
 
-button.onclick = function() {
-    //make a request to the counter endpoint
+
+button.onclick = function(){
+    //create a reuest
+    var request = XMLHttpRequest();
     //capture the response and store it in a variable
-    //render the variable in the correct span
-    
-    counter=counter +1;
-    var span=document.getElementById('count');
-    span.innerHTML=counter.toString();
-}
+    request.onreadystatechange = function(){
+        if (request.readystate==XMLHttpRequest.DONE){
+            //TAKE SOME ACTION
+            if (request.status==200){
+            var counter=request.responseText;
+              var span=document.getElementById('count');
+              span.innerHTML=counter.toString();    
+                
+            }
+            }
+        
+        //NOT DONE YET
+        
+    };
+    //make the request
+    request.open('GET','http://svimaladevisris-imad.hasura-app.io/counter',true);
+    request.send(null);
+};
