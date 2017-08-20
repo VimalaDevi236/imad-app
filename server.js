@@ -83,7 +83,7 @@ app.post('/create-user', function (req, res) {
     
  var username=req.body.username;
  var password=req.body.password;
- var salt=crypto.getRandomBytes.toString('hex');
+ var salt=crypto.randomBytes.toString('hex');
  var dBString=hash(password,salt);
  pool.query('INSERT INTO "user"(username,password)VALUES($1,$2)',[usename,dbString],function(err,result){
 
@@ -93,10 +93,6 @@ app.post('/create-user', function (req, res) {
       else{
           res.send('user sucessfully created'+username);
             }
-
-
-
-     
  });
 });
 
@@ -104,7 +100,34 @@ app.post('/create-user', function (req, res) {
 
 
 
+app.post('/login',function(req,res){
+    var username=req.body.username;
+    var password=req.body.password;
 
+ pool.query('SELECT * from "user"  username=$1',[username],function(err,result){
+
+         if(err){
+          res.status(500).send(err.toString());
+            }
+      else{
+          if(result.rows.length===0){
+              res.send(403).send('username/password is invalid');
+              
+          }
+          else{
+          var dBString=result.rows[0].password;
+          dBString.split('$')[2];
+          var hashedPassword=hash(password,salt);
+          if(hashedPassword === dBString){
+          res.send('credentials correcr!');
+            }else{
+                res.send(403).send('username/password is invalid');
+            }
+              
+          }
+      }
+ });
+});
 
 
 
