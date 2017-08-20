@@ -30,8 +30,7 @@ button.onclick = function(){
 };//button click function
 
 //submit name
-var nameInput= document.getElementById("name");
-var name = nameInput.value;
+
 var submit=document.getElementById("submit_btn");
 submit.onclick = function(){
     //create a request
@@ -58,9 +57,9 @@ submit.onclick = function(){
         
     };//request function
     
-  
+    var nameInput= document.getElementById("name");
+    var name = nameInput.value;
     request.open('GET','http://svimaladevisris.imad.hasura-app.io/submit-name?name='+name,true);
-    
     request.send(null);
 };//submit click function
 
