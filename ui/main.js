@@ -8,7 +8,7 @@ button.onclick = function(){
     var request = new XMLHttpRequest();
     //capture the response and store it in a variable
     request.onreadystatechange = function(){
-        if (request.readystate===XMLHttpRequest.DONE){
+        if (request.readyState===XMLHttpRequest.DONE){
             //TAKE SOME ACTION
             if (request.status===200){
                  //captures the names and render it as a list
@@ -33,7 +33,7 @@ submit.onclick = function(){
     var request = new XMLHttpRequest();
     //capture the response and store it in a variable
     request.onreadystatechange = function(){
-        if (request.readystate===XMLHttpRequest.DONE){
+        if (request.readyState===XMLHttpRequest.DONE){
             //TAKE SOME ACTION
             if (request.status===200){
                  //captures the names and render it as a list
