@@ -73,6 +73,12 @@ var htmlTemplate=`<html>
         return htmlTemplate;
 }
 
+app.get('/test-db', function (req, res) {
+  //make a select requets
+  //return the responses with the results
+});
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
