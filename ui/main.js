@@ -22,16 +22,12 @@ button.onclick = function(){
         //NOT DONE YET
         
     };//request function
-    
-  
-    
     request.open('GET','http://svimaladevisris.imad.hasura-app.io/counter',true);//required
     request.send(null);//required
 };//button click function
 
 //submit name
-
-var submit=document.getElementById("submit_btn");
+var submit=document.getElementById('submit_btn');
 submit.onclick = function(){
     //create a request
     var request = new XMLHttpRequest();
@@ -43,7 +39,7 @@ submit.onclick = function(){
                  //captures the names and render it as a list
              var names=request.responseText;
              names=JSON.parse(names);
-              var list="";
+              var list='';
               for(var i=0;i<names.length;i++){
                list += "<li>"+names[i]+"</li>";   
               }
