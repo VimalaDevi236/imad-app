@@ -86,7 +86,7 @@ var htmlTemplate=`<html>
 
 
 
-var pool=new Pool(config);
+var Pool=new Pool(config);
 app.get('/test-db', function (req, res) {
   //make a select requets
   //return the responses with the results
