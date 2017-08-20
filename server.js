@@ -96,7 +96,7 @@ app.get('/:submit-name', function (req, res){//url/submit-name?name=xxxx
 });
 
 
-app.get('/:articleName',function(req,res){
+app.get('/articleName',function(req,res){
     //article-name=article-one
     //articles[articleName]={}content object for article-one
     var articleName = req.params.articleName;
