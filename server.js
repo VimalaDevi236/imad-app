@@ -16,38 +16,7 @@ var config={
 var app = express();
 app.use(morgan('combined'));
 
-var articles ={
-    'article-one':{
-    title:'Article one vimala devi',
-    heading:'Article one',
-    date:'Sep 5 2016',
-    content:
-   ` <p>
-                this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.
-            </p>
-            <p>
-                this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.
-            </p>
-            <p>
-                this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.this is the content for my first article.
-            </p>`
-},
-    'article-two':{ title:'Article two vimala devi',
-    heading:'Article two',
-    date:'Sep 10 2016',
-    content:
-   ` <p>
-                this is the content for my second article.
-     </p>`
-    } ,    
-    'article-three':{ title:'Article three vimala devi',
-    heading:'Article three',
-    date:'Sep 15 2016',
-    content:
-   ` <p>
-                this is the content for my third article.
-     </p>`}
-};
+
 function createTemplate(data){
     var title = data.title;
     var date =data.date;
@@ -130,7 +99,7 @@ app.get('/:submit-name', function (req, res){//url/submit-name?name=xxxx
 app.get('/articles/:articleName',function(req,res){
     //article-name=article-one
     //articles[articleName]={}content object for article-one
-    pool.query("SELECT * FROM article WHERE title ='"+req.params.articleName+"'",function(err,result){
+    pool.query("SELECT * FROM article WHERE title =$1",[req.params.articleName],function(err,result){
         if(err){
           res.status(500).send(err.toString());
       }
