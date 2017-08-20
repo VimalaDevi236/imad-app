@@ -14,7 +14,7 @@ button.onclick = function(){
                  //captures the names and render it as a list
              var counter=request.responseText;
              var span=document.getElementById('count');
-             span.innerHTNL=counter.toString();
+             span.innerHTML=counter.toString();
             
             }//inner if
             }//outer if
