@@ -119,7 +119,7 @@ app.get('/submit-name/:name', function (req, res){
     req.send(JSON.stringify(names));
     
     
-}
+});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
