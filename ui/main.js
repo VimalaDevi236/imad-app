@@ -1,8 +1,7 @@
 //counter code
 var button=document.getElementById('counter');
 
-var nameInput= document.getElementById("name");
-var name = nameInput.value;
+
 var submit=document.getElementById("submit_btn");
 button.onclick = function(){
     //create a reuest
@@ -28,6 +27,9 @@ button.onclick = function(){
         //NOT DONE YET
         
     };
+    
+    var nameInput= document.getElementById("name");
+    var name = nameInput.value;
     //make the request
     request.open('GET','http://svimaladevisris.imad.hasura-app.io/submit-name?name='+name,true);
     request.send(null);
